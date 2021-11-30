@@ -101,3 +101,18 @@ Attribute | Description
     />
 ```
 
+### Other supported methods
+```java
+CircleSeekBar circleSeekBar = new CircleSeekBar(this);
+circleSeekBar.setCurProcess(10);
+circleSeekBar.setMaxProcess(100);
+circleSeekBar.setReachedWidth(30);
+circleSeekBar.setUnreachedWidth(34);
+circleSeekBar.setPointerRadius(12);
+circleSeekBar.setReachedColor(Color.getIntColor("#FF4081"));
+circleSeekBar.setUnreachedColor(Color.getIntColor("#3F51B5"));
+circleSeekBar.setPointerColor(Color.getIntColor("#FFFAF5F5"));
+circleSeekBar.setPointerShadowRadius(3);
+circleSeekBar.setWheelShadow(3);
+circleSeekBar.setHasReachedCornerRound(true);
+```
