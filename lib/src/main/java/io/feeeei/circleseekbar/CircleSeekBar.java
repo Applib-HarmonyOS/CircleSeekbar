@@ -89,9 +89,7 @@ public class CircleSeekBar extends Component implements EstimateSizeListener, Dr
      */
     public CircleSeekBar(Context context) {
         this(context, null);
-        setEstimateSizeListener(this);
-        addDrawTask(this::onDraw);
-        setTouchEventListener(this);
+        initialize();
     }
 
     /**
@@ -103,9 +101,7 @@ public class CircleSeekBar extends Component implements EstimateSizeListener, Dr
      */
     public CircleSeekBar(Context context, AttrSet attrs) {
         this(context, attrs, 0);
-        setEstimateSizeListener(this);
-        addDrawTask(this::onDraw);
-        setTouchEventListener(this);
+        initialize();
     }
 
     /**
@@ -121,6 +117,10 @@ public class CircleSeekBar extends Component implements EstimateSizeListener, Dr
         initAttrs(attrs);
         initPadding();
         initPaints();
+        initialize();
+    }
+
+    private void initialize() {
         setEstimateSizeListener(this);
         addDrawTask(this::onDraw);
         setTouchEventListener(this);
