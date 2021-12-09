@@ -1,77 +1,118 @@
-## CircleSeekbar 
-[![Build Status](https://travis-ci.org/feeeei/CircleSeekbar.svg?branch=master)](https://travis-ci.org/feeeei/CircleSeekbar)
-[![API](https://img.shields.io/badge/API-7%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=7)
-[![JitPack](https://jitpack.io/v/feeeei/CircleSeekbar.svg)](https://jitpack.io/#feeeei/CircleSeekbar)
+# CircleSeekBar
+
+A HMOS circle seekbar library
+
+## Source
+Inspired by [feeeei/CircleSeekbar](https://github.com/feeeei/CircleSeekbar) - version v1.1.2
+
+## Feature
+This library which provides circle seekbar feature.
+
+- Download Ability
+
+<img src="screenshots/download.gif" width="256">
+
+- SetProcess Ability
+
+<img src="screenshots/setprocess.gif" width="256">
+
+- Style1 Ability
+
+<img src="screenshots/style1.gif" width="256">
+
+- Style2 Ability
+
+<img src="screenshots/style2.gif" width="256">
+
+- Union Ability
+
+<img src="screenshots/union.gif" width="256">
+
+- WithShadow Ability
+
+<img src="screenshots/shadow.gif" width="256">
+
+- WithText Ability
+
+<img src="screenshots/withtext.gif" width="256">
 
 
-an android circle seekbar library
-
-<img src="https://github.com/feeeei/CircleSeekbar/blob/master/gifs/style1.gif" width="220"/>
-<img src="https://github.com/feeeei/CircleSeekbar/blob/master/gifs/style2.gif" width="220"/>
-<img src="https://github.com/feeeei/CircleSeekbar/blob/master/gifs/withshadow.gif" width="220"/>
-<img src="https://github.com/feeeei/CircleSeekbar/blob/master/gifs/withtext.gif" width="220"/>
-<img src="https://github.com/feeeei/CircleSeekbar/blob/master/gifs/download.gif" width="220"/>
-<img src="https://github.com/feeeei/CircleSeekbar/blob/master/gifs/union.gif" width="220"/>
-
-## quick start
-#### 1.Add root build.gradle
-```
- repositories {
-        // ...
-        maven { url "https://jitpack.io" }
- }
-```
-#### 2.Add build.gradle
-```
-dependencies {
-	        compile 'com.github.feeeei:CircleSeekbar:v1.1.2'
+## Dependency
+1. For using CircleSeekBar lib module in sample app, include the source code and add the below dependencies in entry/build.gradle to generate hap/support.har.
+```groovy
+	dependencies {
+		implementation project(':lib')
+        implementation fileTree(dir: 'libs', include: ['*.har'])
+        testImplementation 'junit:junit:4.13'
 	}
 ```
-#### 3.Added to the XML
+2. For using CircleSeekBar lib in separate application using har file, add the har file in the entry/libs folder and add the dependencies in entry/build.gradle file.
+```groovy
+	dependencies {
+		implementation fileTree(dir: 'libs', include: ['*.har'])
+		testImplementation 'junit:junit:4.13'
+	}
 ```
-    <io.feeeei.circleseekbar.CircleSeekBar
-        android:id="@+id/seekbar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+
+## Usage
+
+### Attributes Description
+
+Attribute | Description
+--- | ---
+`wheel_reached_width` | reached width of ` CircleSeekBar ` wheel
+`wheel_reached_color` | reached color of `CircleSeekBar` wheel
+`wheel_unreached_width` | unreached width of ` CircleSeekBar ` wheel
+`wheel_unreached_color` | unreached color of `CircleSeekBar` wheel
+`wheel_max_process` | maximum process value for `CircleSeekBar` wheel
+`wheel_cur_process` | current process value for `CircleSeekBar` wheel
+`wheel_pointer_radius` | radius value of pointer for `CircleSeekBar` wheel
+`wheel_pointer_color` | pointer color for the ` CircleSeekBar ` wheel
+`wheel_can_touch` | if you want to block touchListener,use like processBar, only allow the code to control the schedule, you can change this attribute to false 
+`wheel_scroll_only_one_circle` | scroll across the circle only once smoothly
+`wheel_has_pointer_shadow` | to enable and disable the pointer shadow of ` CircleSeekBar ` wheel
+`wheel_has_wheel_shadow` | to enable and disable the wheel shadow of ` CircleSeekBar ` wheel
+`wheel_pointer_shadow_radius` | radius value for pointer shadow of ` CircleSeekBar ` wheel
+`wheel_shadow_radius` | radius value for wheel shadow of ` CircleSeekBar ` wheel
+
+### Added to the XML
+
+```xml
+<io.feeeei.circleseekbar.CircleSeekBar
+        ohos:id="$+id:progress"
+        ohos:width="350vp"
+        ohos:height="350vp"
+        ohos:center_in_parent="true"
+        ohos:padding="4vp"
+        app:wheel_reached_width="30vp"
+        app:wheel_unreached_width="34vp"
+        app:wheel_cur_process="10"
         app:wheel_max_process="100"
-        />
+        app:wheel_pointer_radius="12vp"
+        app:wheel_can_touch="true"
+        app:wheel_scroll_only_one_circle="true"
+        app:wheel_pointer_color="#FFFAF5F5"
+        app:wheel_reached_color="$color:colorAccent"
+        app:wheel_unreached_color="$color:colorPrimary"
+        app:wheel_has_pointer_shadow="true"
+        app:wheel_has_wheel_shadow="true"
+        app:wheel_pointer_shadow_radius="3vp"
+        app:wheel_shadow_radius="3vp"
+    />
 ```
 
-## attrs
+### Other supported methods
+```java
+CircleSeekBar circleSeekBar = new CircleSeekBar(this);
+circleSeekBar.setCurProcess(10);
+circleSeekBar.setMaxProcess(100);
+circleSeekBar.setReachedWidth(30);
+circleSeekBar.setUnreachedWidth(34);
+circleSeekBar.setPointerRadius(12);
+circleSeekBar.setReachedColor(Color.getIntColor("#FF4081"));
+circleSeekBar.setUnreachedColor(Color.getIntColor("#3F51B5"));
+circleSeekBar.setPointerColor(Color.getIntColor("#FFFAF5F5"));
+circleSeekBar.setPointerShadowRadius(3);
+circleSeekBar.setWheelShadow(3);
+circleSeekBar.setHasReachedCornerRound(true);
 ```
-  <!-- process -->
-  <attr name="wheel_max_process" format="integer" />
-  <attr name="wheel_cur_process" format="integer" />
-  
-  <!-- reached style -->
-  <attr name="wheel_reached_color" format="color" />
-  <attr name="wheel_reached_width" format="dimension" />
-  
-  <!-- unReached style -->
-  <attr name="wheel_unreached_color" format="color" />
-  <attr name="wheel_unreached_width" format="dimension" />
-  
-  <!-- pointer style -->
-  <attr name="wheel_pointer_color" format="color" />
-  <attr name="wheel_pointer_radius" format="dimension" />
-  
-  <!--shadows style -->
-  <attr name="wheel_has_pointer_shadow" format="boolean" />
-  <attr name="wheel_has_wheel_shadow" format="boolean" />
-  <attr name="wheel_pointer_shadow_radius" format="dimension" />
-  <attr name="wheel_shadow_radius" format="dimension" />
-  
-  <!-- if you want to open the wheel shadow, open this can speed up the rendering speed -->
-  <attr name="wheel_has_cache" format="boolean" />
-  
-  <!-- if you want to block touchListener,use like processBar,
-   only allow the code to control the schedule, you can change this attribute to false -->
-  <attr name="wheel_can_touch" format="boolean" />    
-  
-  <attr name="wheel_scroll_only_one_circle" format="boolean" />
-```
-
-## License
-#### PGSL 
-please give me star license
-

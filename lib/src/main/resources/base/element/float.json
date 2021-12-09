@@ -1,0 +1,16 @@
+{
+  "float": [
+    {
+      "name": "def_wheel_width",
+      "value": "32vp"
+    },
+    {
+      "name": "def_shadow_radius",
+      "value": "2vp"
+    },
+    {
+      "name": "def_shadow_offset",
+      "value": "2vp"
+    }
+  ]
+}

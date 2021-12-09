@@ -1,0 +1,25 @@
+{
+  "app": {
+    "bundleName": "test.io.feeeei.circleseekbar",
+    "vendor": "feeeei",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {
+  },
+  "module": {
+    "package": "io.feeeei.circleseekbar",
+    "deviceType": [
+      "phone",
+      "tablet",
+      "tv"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "lib",
+      "moduleType": "har"
+    }
+  }
+}
