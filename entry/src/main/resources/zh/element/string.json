@@ -7,10 +7,6 @@
     {
       "name": "mainability_description",
       "value": "Java_Empty Ability"
-    },
-    {
-      "name": "mainability_HelloWorld",
-      "value": "你好，世界"
     }
   ]
 }

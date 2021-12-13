@@ -2,15 +2,11 @@
   "string": [
     {
       "name": "entry_MainAbility",
-      "value": "entry_MainAbility"
+      "value": "CircleSeekbar"
     },
     {
       "name": "mainability_description",
-      "value": "Java_Empty Ability"
-    },
-    {
-      "name": "mainability_HelloWorld",
-      "value": "Hello World"
+      "value": "A HMOS circle seekbar library"
     }
   ]
 }
